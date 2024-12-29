@@ -1,0 +1,31 @@
+{
+  "name": "congruence_solver",
+  "description": "Linear and quadratic congruence solver",
+  "sideEffects": false,
+  "version": "0.0.0",
+  "author": {
+    "name": "Péter Pallos"
+  },
+  "license": "MIT",
+  "type": "module",
+  "keywords": [
+    "congruence solver",
+    "linear congruence",
+    "quadratic congruence",
+    "modular arithmetic"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@jest/globals": "^29.7.0",
+    "@types/minimalistic-assert": "^1.0.3",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "minimalistic-assert": "^1.0.1"
+  }
+}
