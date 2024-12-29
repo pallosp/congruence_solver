@@ -18,7 +18,7 @@ export function solveQuadraticCongruenceModPrime(
   c = (c * inv) % p;
   // p = 2 is a special case
   if (p === 2) {
-    if (b === 0) return {res: [c === 0 ? 0 : 1], mod: 2};
+    if (b === 0) return {res: [c], mod: 2};
     return c === 0 ? ALL_RESIDUES : NO_RESIDUES;
   }
   // x² + bx + c ≡ 0 (mod p) is equivalent to (x + b/2)² ≡ b²/4 - c (mod p)
@@ -28,7 +28,7 @@ export function solveQuadraticCongruenceModPrime(
   if (y === 0) return {res: [(p - bHalf) % p], mod: p};
   const x1 = (p + y - bHalf) % p;
   const x2 = (p - y - bHalf) % p;
-  return {res: [Math.min(x1, x2), Math.max(x1, x2)], mod: p};
+  return {res: x1 < x2 ? [x1, x2] : [x2, x1], mod: p};
 }
 
 /**
