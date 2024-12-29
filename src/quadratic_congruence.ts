@@ -75,14 +75,16 @@ export function solveQuadraticCongruenceModPrimePower(
       for (let x of res) {
         x += i;
         if (((a * x + b) * x + c) % nextPp === 0) {
-          newRes.push(x);
-          if (newRes.length >= 3) break outerloop;
+          if (newRes.push(x) > 2) break outerloop;
         }
       }
     }
     res = newRes;
     if (res.length === 0) return NO_RESIDUES;
-    if (res.length <= 2) {
+    if (res.length === 2 && pp === 2) {
+      mod = 1;
+      res.length = 1;
+    } else if (res.length <= 2) {
       mod = pp;
     } else if (res[1] - res[0] === res[2] - res[1]) {
       mod = res[1] - res[0];

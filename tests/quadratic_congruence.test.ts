@@ -89,6 +89,14 @@ test('solveQuadraticCongruenceModPrimePower', () => {
   expect(solveQuadraticCongruenceModPrimePower(1, 3, 2, 2, 2))
       .toEqual({res: [2, 3], mod: 4});
 
+  // 2x² + 2x ≡ 0 (mod 2²)
+  expect(solveQuadraticCongruenceModPrimePower(2, 2, 0, 2, 2))
+      .toEqual(ALL_RESIDUES);
+
+  // 2x² + 2x ≡ 0 (mod 2³)
+  expect(solveQuadraticCongruenceModPrimePower(2, 2, 0, 2, 3))
+      .toEqual({res: [0, 3], mod: 4});
+
   // 4x² + 4x ≡ 0 (mod 2³)
   expect(solveQuadraticCongruenceModPrimePower(4, 4, 0, 2, 3))
       .toEqual(ALL_RESIDUES);
@@ -150,6 +158,8 @@ test('solveQuadraticCongruence', () => {
   // 4 residue classes
   expect(solveQuadraticCongruence(1, 1, 0, 12))
       .toEqual({res: [0, 3, 8, 11], mod: 12});
+  expect(solveQuadraticCongruence(2, 2, 0, 60))
+      .toEqual({res: [0, 5, 9, 14], mod: 15});
 });
 
 test('solveQuadraticCongruence, random equations', () => {
