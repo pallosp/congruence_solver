@@ -1,33 +1,36 @@
 import assert from 'minimalistic-assert';
 
 import {powMod} from './pow_mod';
-import {NO_RESIDUES, ResidueClasses} from './types';
 
 /**
- * Solves x² ≡ a (mod p) with the Tonelli-Shanks algorithm.
- * Returns 0, 1 or 2 residue classes.
+ * Computes the square root of a modulo p using the Tonelli-Shanks algorithm.
+ * Solves the congruence x² ≡ a (mod p) and returns the smallest non-negative
+ * solution, or NaN if no solution exists.
+ *
+ * If the equation has solutions, they are symmetric modulo p. Specifically,
+ * if x is a solution, then -x (or equivalently p-x) is also a solution.
  *
  * Preconditions:
- *   p is a prime number
- *   p ≤ 94906249 (p² ≤ Number.MAX_SAFE_INTEGER in order to avoid wrong
- *     results or infinite loops due to floating point rounding).
+ *   - p must be a prime number.
+ *   - p ≤ 94906249 (to ensure that p² ≤ Number.MAX_SAFE_INTEGER, avoiding
+ *     incorrect results or infinite loops caused by floating-point rounding
+ *     errors).
  */
-export function sqrtModPrime(a: number, p: number): ResidueClasses {
+export function sqrtModPrime(a: number, p: number): number {
   p = Math.abs(p);
   assert(p <= 94906249);
   a %= p;
-  if (a === 0) return {res: [0], mod: p};
+  if (a === 0) return 0;
   if (a < 0) a += p;
-  if (p === 2) return {res: [1], mod: p};
-  if (a === 1) return {res: [1, p - 1], mod: p};
-  if (powMod(a, (p - 1) / 2, p) !== 1) return NO_RESIDUES;
+  if (p === 2 || a === 1) return 1;
+  if (powMod(a, (p - 1) / 2, p) !== 1) return NaN;
   let q = p - 1;
   let s = 0;
   for (; q % 2 === 0; q /= 2) s++;
   // The solution is straightforward when s = 1, i.e. p ≡ 3 (mod 4)
   if (s === 1) {
     const x = powMod(a, (p + 1) / 4, p);
-    return {res: x < p - x ? [x, p - x] : [p - x, x], mod: p};
+    return Math.min(x, p - x);
   }
   let nonResidue = 2;
   while (powMod(nonResidue, (p - 1) / 2, p) === 1) nonResidue++;
@@ -43,5 +46,5 @@ export function sqrtModPrime(a: number, p: number): ResidueClasses {
     c = (c * c) % p;
     t = (t * c) % p;
   }
-  return {res: x < p - x ? [x, p - x] : [p - x, x], mod: p};
+  return Math.min(x, p - x);
 }

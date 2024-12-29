@@ -23,8 +23,8 @@ export function solveQuadraticCongruenceModPrime(
   }
   // x² + bx + c ≡ 0 (mod p) is equivalent to (x + b/2)² ≡ b²/4 - c (mod p)
   const bHalf = (b % 2 !== 0 ? b - p : b) / 2;
-  const y = sqrtModPrime(bHalf * bHalf - c, p).res[0];
-  if (y == null) return NO_RESIDUES;
+  const y = sqrtModPrime(bHalf * bHalf - c, p);
+  if (y !== y) return NO_RESIDUES;
   if (y === 0) return {res: [(p - bHalf) % p], mod: p};
   const x1 = (p + y - bHalf) % p;
   const x2 = (p - y - bHalf) % p;
