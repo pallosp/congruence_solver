@@ -1,5 +1,13 @@
 import assert from 'minimalistic-assert';
 
+export function isPowerOfTwo(x: number): boolean {
+  return Number.isInteger(Math.log2(x));
+}
+
+export function isStrictlyAscending(arr: readonly number[]): boolean {
+  return arr.every((el, i) => i === 0 || arr[i - 1] < el);
+}
+
 /**
  * Returns a random integer in the [min, max] closed interval.
  */

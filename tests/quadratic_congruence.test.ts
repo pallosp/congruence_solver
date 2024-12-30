@@ -3,7 +3,7 @@ import {expect, test} from '@jest/globals';
 import {solveQuadraticCongruence, solveQuadraticCongruenceModPrime, solveQuadraticCongruenceModPrimePower} from '../src/quadratic_congruence';
 import {ALL_RESIDUES, NO_RESIDUES} from '../src/types';
 
-import {randomInt, randomItem} from './random';
+import {isPowerOfTwo, isStrictlyAscending, randomInt, randomItem} from './helper';
 
 function quadraticCongruenceNumSolutions(
     a: number, b: number, c: number, mod: number) {
@@ -12,14 +12,6 @@ function quadraticCongruenceNumSolutions(
     if (((a * x + b) * x + c) % mod === 0) n++;
   }
   return n;
-}
-
-function isPowerOfTwo(x: number): boolean {
-  return Number.isInteger(Math.log2(x));
-}
-
-function isStrictlyAscending(arr: readonly number[]): boolean {
-  return arr.every((el, i) => i === 0 || arr[i - 1] < el);
 }
 
 test('solveQuadraticCongruenceModPrime', () => {
