@@ -1,9 +1,9 @@
-import {expect, test} from '@jest/globals';
+import './lib/matchers';
 
 import {solveQuadraticCongruence, solveQuadraticCongruenceModPrime, solveQuadraticCongruenceModPrimePower} from '../src/quadratic_congruence';
 import {ALL_RESIDUES, NO_RESIDUES} from '../src/types';
 
-import {isPowerOfTwo, isStrictlyAscending, randomInt, randomItem} from './helper';
+import {isPowerOfTwo, randomInt, randomItem} from './helper';
 
 function quadraticCongruenceNumSolutions(
     a: number, b: number, c: number, mod: number) {
@@ -22,12 +22,11 @@ test('solveQuadraticCongruenceModPrime', () => {
           const {res, mod} = solveQuadraticCongruenceModPrime(a, b, c, p);
 
           expect(res.length).toBeLessThanOrEqual(2);
-          expect(isStrictlyAscending(res)).toBe(true);
+          expect(res).toBeStrictlyAscending();
           expect(p % mod).toBe(0);
 
           for (const x of res) {
-            expect(x).toBeGreaterThanOrEqual(0);
-            expect(x).toBeLessThan(mod);
+            expect(x).toBeInRange(0, mod - 1);
             expect((a * x * x + b * x + c) % p).toBe(0);
             expect((a * (x + mod) * (x + mod) + b * (x + mod) + c) % p).toBe(0);
           }
@@ -105,14 +104,14 @@ test('solveQuadraticCongruenceModPrimePower, random equations', () => {
     const {res, mod} = solveQuadraticCongruenceModPrimePower(a, b, c, p, k);
 
     expect(res.length).toBeLessThanOrEqual(2);
-    expect(isStrictlyAscending(res)).toBe(true);
-    expect(pk % mod).toBe(0);
+    expect(res).toBeStrictlyAscending();
+    expect(pk).toBeCongruent(0, mod);
 
     for (const x of res) {
-      expect(x).toBeGreaterThanOrEqual(0);
-      expect(x).toBeLessThan(mod);
-      expect(((a * x + b) * x + c) % pk + 0).toBe(0);
-      expect((a * (x + mod) * (x + mod) + b * (x + mod) + c) % pk + 0).toBe(0);
+      expect(x).toBeInRange(0, mod - 1);
+      expect((a * x + b) * x + c).toBeCongruent(0, pk);
+      expect(a * (x + mod) * (x + mod) + b * (x + mod) + c)
+          .toBeCongruent(0, pk);
     }
 
     expect(res.length * pk / mod)
@@ -163,14 +162,13 @@ test('solveQuadraticCongruence, random equations', () => {
     const {res, mod} = solveQuadraticCongruence(a, b, c, m);
 
     expect(res.length === 0 || isPowerOfTwo(res.length)).toBe(true);
-    expect(isStrictlyAscending(res)).toBe(true);
-    expect(m % mod).toBe(0);
+    expect(res).toBeStrictlyAscending();
+    expect(m).toBeCongruent(0, mod);
 
     for (const x of res) {
-      expect(x).toBeGreaterThanOrEqual(0);
-      expect(x).toBeLessThan(mod);
-      expect(((a * x + b) * x + c) % m + 0).toBe(0);
-      expect((a * (x + mod) * (x + mod) + b * (x + mod) + c) % m + 0).toBe(0);
+      expect(x).toBeInRange(0, mod - 1);
+      expect((a * x + b) * x + c).toBeCongruent(0, m);
+      expect(a * (x + mod) * (x + mod) + b * (x + mod) + c).toBeCongruent(0, m);
     }
 
     expect(res.length * m / mod)

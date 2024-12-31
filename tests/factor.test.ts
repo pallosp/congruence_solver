@@ -1,5 +1,3 @@
-import {expect, test} from '@jest/globals';
-
 import {factor} from '../src/factor';
 
 test('factor', () => {

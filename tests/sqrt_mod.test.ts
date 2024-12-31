@@ -1,4 +1,4 @@
-import {expect, test} from '@jest/globals';
+import './lib/matchers';
 
 import {sqrtModPrime} from '../src/sqrt_mod';
 
@@ -21,9 +21,8 @@ test('sqrtModPrime', () => {
     for (let a = 0; a < p; a++) {
       const r = sqrtModPrime(a, p);
       if (isNaN(r)) continue;
-      expect((r * r) % p).toBe(a);
-      expect(r).toBeGreaterThanOrEqual(0);
-      expect(r).toBeLessThanOrEqual(p / 2);
+      expect(r * r).toBeCongruent(a, p);
+      expect(r).toBeInRange(0, p / 2);
     }
   }
 });

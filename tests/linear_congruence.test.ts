@@ -1,5 +1,3 @@
-import {expect, test} from '@jest/globals';
-
 import {solveLinearCongruence} from '../src/linear_congruence';
 import {ALL_RESIDUES, NO_RESIDUES} from '../src/types';
 

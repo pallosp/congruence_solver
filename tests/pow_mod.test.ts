@@ -1,5 +1,3 @@
-import {expect, test} from '@jest/globals';
-
 import {powMod} from '../src/pow_mod';
 
 test('powMod', () => {

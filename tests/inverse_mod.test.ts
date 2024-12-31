@@ -1,4 +1,4 @@
-import {expect, test} from '@jest/globals';
+import './lib/matchers';
 
 import {gcd} from '../src/gcd';
 import {inverseMod} from '../src/inverse_mod';
@@ -24,9 +24,9 @@ test('inverseMod', () => {
       if (gcd(m, i) > 1) {
         expect(inverseMod(i, m)).toBe(NaN);
       } else {
-        expect((i * inverseMod(i, m)) % m).toBe(1);
-        expect((i * inverseMod(i, -m)) % m).toBe(1);
-        expect(((m - i) * inverseMod(-i, m)) % m).toBe(1);
+        expect((i * inverseMod(i, m))).toBeCongruent(1, m);
+        expect((i * inverseMod(i, -m))).toBeCongruent(1, m);
+        expect(((m - i) * inverseMod(-i, m))).toBeCongruent(1, m);
       }
     }
   }

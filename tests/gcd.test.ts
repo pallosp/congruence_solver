@@ -1,5 +1,3 @@
-import {expect, test} from '@jest/globals';
-
 import {gcd} from '../src/gcd';
 
 test('gcd', () => {
