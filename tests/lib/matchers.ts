@@ -5,6 +5,7 @@ declare global {
     interface Matchers<R> {
       toBeInRange(expected: number, modulus: number): CustomMatcherResult;
       toBeCongruent(expected: number, modulus: number): CustomMatcherResult;
+      toBeCongruent(expected: bigint, modulus: bigint): CustomMatcherResult;
       toBeStrictlyAscending(): CustomMatcherResult;
     }
   }
@@ -21,9 +22,16 @@ expect.extend({
         };
       },
 
-  toBeCongruent(received: number, expected: number, modulus: number):
+  toBeCongruent(
+      received: number|bigint, expected: number|bigint, modulus: number|bigint):
       jest.CustomMatcherResult {
-        const pass = (received - expected) % modulus === 0;
+        // @ts-expect-error
+        let remainder1 = received % modulus;
+        if (remainder1 < 0) remainder1 += modulus;
+        // @ts-expect-error
+        let remainder2 = expected % modulus;
+        if (remainder2 < 0) remainder2 += modulus;
+        const pass = remainder1 === remainder2;
         return {
           pass,
           message: () => `Expected ${received}${pass ? ' not' : ''} to be ` +
