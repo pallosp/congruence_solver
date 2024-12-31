@@ -1,7 +1,7 @@
 import './lib/matchers';
 
 import {solveQuadraticCongruence, solveQuadraticCongruenceModPrime, solveQuadraticCongruenceModPrimePower} from '../src/quadratic_congruence';
-import {ALL_RESIDUES, NO_RESIDUES} from '../src/types';
+import {ALL_RESIDUES, NO_RESIDUES} from '../src/residues';
 
 import {isPowerOfTwo, randomInt, randomItem} from './helper';
 

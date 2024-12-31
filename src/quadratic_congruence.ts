@@ -1,8 +1,8 @@
 import {factor} from './factor';
 import {inverseMod} from './inverse_mod';
 import {solveLinearCongruence} from './linear_congruence';
+import {ALL_RESIDUES, NO_RESIDUES, ResidueClasses} from './residues';
 import {sqrtModPrime} from './sqrt_mod';
-import {ALL_RESIDUES, NO_RESIDUES, ResidueClasses} from './types';
 
 /**
  * Solves ax² + bx + c ≡ 0 (mod p) where p is a prime.

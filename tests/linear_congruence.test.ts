@@ -1,5 +1,5 @@
 import {solveLinearCongruence} from '../src/linear_congruence';
-import {ALL_RESIDUES, NO_RESIDUES} from '../src/types';
+import {ALL_RESIDUES, NO_RESIDUES} from '../src/residues';
 
 test('solveLinearCongruence', () => {
   // no solution
