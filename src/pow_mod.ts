@@ -1,11 +1,11 @@
 /**
- * Computes base ** exp % mod, where base ∈ ℤ, exp ∈ ℕ and mod ∈ ℤ - {0}.
- * Returns an integer between 0 and mod - 1.
+ * Computes (base ** exp) % mod. Returns an integer between 0 and mod - 1.
  *
  * Preconditions:
+ *   base, exp, mod ∈ ℤ
  *   base² < 2**53
- *   |exp| < 2**31
- *   mod² < 2**53
+ *   0 ≤ exp < 2**31
+ *   0 < mod² < 2**53
  */
 export function powMod(base: number, exp: number, mod: number): number {
   let result = 1;
