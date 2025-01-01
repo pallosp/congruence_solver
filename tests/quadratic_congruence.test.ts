@@ -178,12 +178,14 @@ test('solveQuadraticCongruence, random equations', () => {
 
 test('solveQuadraticCongruence, benchmark', () => {
   const start = performance.now();
-  for (let i = 0; i < 1000; i++) {
+  for (let i = 0; i < 100; i++) {
     const m = randomInt(1, 10000);
     const a = randomInt(-m, m);
     const b = randomInt(-m, m);
     const c = randomInt(-m, m);
-    solveQuadraticCongruence(a, b, c, m);
+    for (let j = 0; j < 10; j++) {
+      solveQuadraticCongruence(a, b, c, m);
+    }
   }
   const elapsed = performance.now() - start;
   console.info(`solveQuadraticCongruence: ${elapsed.toFixed(1)} ms`);
