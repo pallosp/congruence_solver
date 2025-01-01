@@ -12,7 +12,7 @@ export function solveQuadraticCongruenceModPrime(
     a: number, b: number, c: number, p: number): ResidueClasses {
   a %= p;
   if (a === 0) return solveLinearCongruence(b, c, p);
-  p = Math.abs(p);
+  if (p < 0) p = -p;
   const inv = inverseMod(a + p, p);
   b = (b * inv) % p;
   c = (c * inv) % p;
@@ -46,7 +46,7 @@ export function solveQuadraticCongruenceModPrimePower(
   let {res: r, mod} = solutionModP;
   let res = r.concat() as number[];
   if (res.length === 0) return NO_RESIDUES;
-  p = Math.abs(p);
+  if (p < 0) p = -p;
   if (mod === 1 && p === 2) [res, mod] = [[0, 1], 2];
   let exp = 1;
   let pp = p;
