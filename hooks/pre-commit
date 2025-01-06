@@ -1,0 +1,6 @@
+#!/bin/bash
+
+set -o errexit
+
+npm run build
+npm test
