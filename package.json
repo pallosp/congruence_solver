@@ -1,6 +1,6 @@
 {
   "name": "congruence_solver",
-  "description": "Linear and quadratic congruence solver",
+  "description": "Single variable linear and quadratic congruence solver",
   "sideEffects": false,
   "version": "0.0.0",
   "author": {
@@ -12,7 +12,10 @@
     "congruence solver",
     "linear congruence",
     "quadratic congruence",
-    "modular arithmetic"
+    "modular arithmetic",
+    "Tonelli-Shanks",
+    "Hensel lifting",
+    "Chinese remainder theorem"
   ],
   "scripts": {
     "build": "tsc",
