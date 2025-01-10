@@ -19,6 +19,7 @@
   ],
   "scripts": {
     "build": "tsc",
+    "coverage": "jest --coverage",
     "prepare": "husky",
     "test": "jest"
   },
