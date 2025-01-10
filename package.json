@@ -1,8 +1,8 @@
 {
-  "name": "congruence_solver",
+  "name": "congruence-solver",
   "description": "Single variable linear and quadratic congruence solver",
   "sideEffects": false,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "author": {
     "name": "Péter Pallos"
   },
@@ -14,6 +14,7 @@
     "dist"
   ],
   "keywords": [
+    "math",
     "congruence solver",
     "linear congruence",
     "quadratic congruence",
