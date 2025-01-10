@@ -6,6 +6,7 @@
   "author": {
     "name": "Péter Pallos"
   },
+  "repository": "github:pallosp/congruence_solver",
   "license": "MIT",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
