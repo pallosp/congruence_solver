@@ -1,7 +1,10 @@
+/* eslint-disable @typescript-eslint/no-namespace */
+
 export {}
 
 declare global {
   namespace jest {
+    /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
     interface Matchers<R> {
       toBeInRange(expected: number, modulus: number): CustomMatcherResult;
       toBeCongruent(expected: number, modulus: number): CustomMatcherResult;
@@ -25,10 +28,10 @@ expect.extend({
   toBeCongruent(
       received: number|bigint, expected: number|bigint, modulus: number|bigint):
       jest.CustomMatcherResult {
-        // @ts-expect-error
+        // @ts-expect-error Can't rule out mixing number and bigint
         let remainder1 = received % modulus;
         if (remainder1 < 0) remainder1 += modulus;
-        // @ts-expect-error
+        // @ts-expect-error Can't rule out mixing number and bigint
         let remainder2 = expected % modulus;
         if (remainder2 < 0) remainder2 += modulus;
         const pass = remainder1 === remainder2;
