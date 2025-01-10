@@ -4,11 +4,11 @@ import tseslint from 'typescript-eslint';
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
-  pluginJs.configs.recommended,
-  ...tseslint.configs.recommended,
-  {files: ['src/**/*.ts', 'tests/**/*.ts']},
+  {ignores: ['dist']},
   {
     languageOptions: {globals: globals.node},
-    rules: {'prefer-const': ['error', {'destructuring': 'all'}]}
+    rules: {'prefer-const': ['error', {'destructuring': 'all'}]},
   },
+  pluginJs.configs.recommended,
+  ...tseslint.configs.recommended,
 ];
