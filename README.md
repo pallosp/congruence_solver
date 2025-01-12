@@ -1,5 +1,8 @@
 # Congruence Solver
 
+[![NPM package](https://img.shields.io/npm/v/congruence-solver.svg?style=flat)](https://npmjs.org/package/congruence-solver "View this project on npm")
+[![MIT license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
+
 **Congruence Solver** is a TypeScript library designed to solve linear and quadratic congruences, as well as systems of such equations. Unlike most other solvers, it gives the solutions with the least possible modulus, which in effect minimizes the number of distinct residues.
 
 In addition, the library provides access to underlying modular arithmetic utilities, including algorithms for calculating modular inverses and modular square roots.
