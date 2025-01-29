@@ -26,7 +26,7 @@
     "Chinese remainder theorem"
   ],
   "scripts": {
-    "build": "tsup",
+    "build": "tsup --minify",
     "coverage": "jest --coverage",
     "lint": "eslint",
     "prepare": "husky",
