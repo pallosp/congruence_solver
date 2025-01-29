@@ -11,12 +11,11 @@ import {NO_RESIDUES, ResidueClasses} from './residues';
  */
 export function solveLinearCongruence(
     a: number, b: number, m: number): ResidueClasses {
+  if (m === 0) return NO_RESIDUES;
   const g = gcd(a, m);
   if (b % g !== 0) return NO_RESIDUES;
   m = Math.abs(m);
   const m1 = m / g;
-  b %= m;
-  if (b > 0) b -= m;
-  const x = ((0 - b) / g * (inverseMod(a / g, m1) || 0)) % m1;
+  const x = ((m - b % m) / g * inverseMod(a / g, m1)) % m1;
   return {res: [x], mod: m1};
 }
