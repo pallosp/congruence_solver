@@ -120,6 +120,12 @@ test('solveQuadraticCongruenceModPrimePower, random equations', () => {
 });
 
 test('solveQuadraticCongruence', () => {
+  // mod 0
+  expect(solveQuadraticCongruence(1, 0, 0, 0)).toEqual(NO_RESIDUES);
+
+  // mod 1
+  expect(solveQuadraticCongruence(1, 0, 0, 1)).toEqual(ALL_RESIDUES);
+
   const factors = [2, 3];
   expect(solveQuadraticCongruence(1, 2, 3, factors))
       .toEqual({res: [1, 3], mod: 6});

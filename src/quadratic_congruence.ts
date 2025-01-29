@@ -136,6 +136,7 @@ export function solveQuadraticCongruenceModPrimePower(
  */
 export function solveQuadraticCongruence(
     a: number, b: number, c: number, m: number|number[]): ResidueClasses {
+  if (m === 0) return NO_RESIDUES;
   const modFactors = Array.isArray(m) ? m : factor(m);
   let res = [0];
   let mod = 1;
