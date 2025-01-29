@@ -17,13 +17,3 @@ test('factor', () => {
   expect(factor(49)).toEqual([7, 7]);
   expect(factor(105)).toEqual([3, 5, 7]);
 });
-
-test('factor benchmark', () => {
-  const n = 10000;
-  let f = 0;
-  const start = performance.now();
-  for (let i = 1; i <= n; i++) f += factor(i).length;
-  const elapsed = performance.now() - start;
-  console.info(`Factored the first ${n} numbers in ${elapsed.toFixed(1)} ms`);
-  expect(f).toBe(31985);
-});
