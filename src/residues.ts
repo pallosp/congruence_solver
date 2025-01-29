@@ -10,7 +10,7 @@ import {inverseMod} from './inverse_mod';
  * such that n ≡ 1 (mod 5) or n ≡ 2 (mod 5).
  */
 export interface ResidueClasses {
-  readonly res: ReadonlyArray<number>;
+  readonly res: readonly number[];
   readonly mod: number;
 }
 
