@@ -4,9 +4,7 @@
     "useDefineForClassFields": true,
     "module": "ESNext",
     "lib": [
-      "ES2020",
-      "DOM",
-      "DOM.Iterable"
+      "ES2020"
     ],
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -24,6 +22,8 @@
     "noUncheckedSideEffectImports": true
   },
   "include": [
-    "src"
+    "benchmark",
+    "src",
+    "tests"
   ]
 }

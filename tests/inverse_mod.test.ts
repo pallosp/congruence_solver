@@ -76,16 +76,3 @@ test('inverseMod, loose mode', () => {
     }
   }
 });
-
-test('inverseMod benchmark', () => {
-  const prime = 23209;
-
-  let sum = 0;
-  const start = performance.now();
-  for (let i = 1; i < prime; i++) sum += inverseMod(i, prime);
-  const elapsed = performance.now() - start;
-  expect(sum).toBe(prime * (prime - 1) / 2);
-
-  console.info(
-      `inverseMod, all residues mod ${prime}: ${elapsed.toFixed(1)} ms`);
-});
