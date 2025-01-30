@@ -27,7 +27,7 @@
   ],
   "scripts": {
     "benchmark": "tsx benchmark/benchmark",
-    "build": "tsup --minify",
+    "build": "tsup --format=esm --clean --dts && tsup --format=cjs",
     "coverage": "jest --coverage",
     "lint": "eslint",
     "prepare": "husky",
