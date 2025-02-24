@@ -5,9 +5,11 @@
 
 **Congruence Solver** is a TypeScript library designed to solve linear and quadratic congruences, as well as systems of such equations. Unlike most other solvers, it gives the solutions with the least possible modulus, which in effect minimizes the number of distinct residues.
 
-In addition, the library provides access to underlying modular arithmetic utilities, including algorithms for calculating modular inverses and modular square roots.
+The library also provides access to underlying modular arithmetic utilities, including algorithms for calculating modular inverses and modular square roots.
 
 ## Examples
+
+Try the examples below on [CodePen](https://codepen.io/Peter-Pallos/pen/KwKMJOV)
 
 ### Quadratic congruence
 
@@ -60,10 +62,10 @@ import {factor, gcd, inverseMod, powMod, sqrtModPrime} from 'congruence-solver';
 
 const LOOSE = false;
 
-console.log(`Prime factors of 105: ${factor(105)}`);              // 3,5,7
+console.log(`Prime factors of 315: ${factor(315)}`);              // 3,3,5,7
 console.log(`gcd(121, 143) = ${gcd(121, 143)}`);                  // 11
 console.log(`2^-1 ≡ ${inverseMod(2, 5)} (mod 5)`);                // 3
-console.log(`10^-1 (mod 15) = ${inverseMod(10, 15)}`);            // NaN
+console.log(`10^-1 (mod 15) is ${inverseMod(10, 15)}`);           // NaN
 console.log(`4·${inverseMod(4, 6, LOOSE)} ≡ gcd(4, 6) (mod 6)`);  // 2
 console.log(`3⁸ ≡ ${powMod(3, 8, 7)} (mod 7)`);                   // 1
 console.log(`√3 (mod 11) = ±${sqrtModPrime(3, 11)}`);             // ±5
