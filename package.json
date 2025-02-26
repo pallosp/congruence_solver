@@ -30,6 +30,7 @@
     "build": "tsup --format=esm --clean --dts && tsup --format=cjs",
     "coverage": "jest --coverage",
     "lint": "eslint",
+    "prepublishOnly": ".husky/pre-commit && npm run build",
     "prepare": "husky",
     "test": "jest",
     "typecheck": "tsc"
