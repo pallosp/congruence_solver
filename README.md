@@ -3,9 +3,13 @@
 [![NPM package](https://img.shields.io/npm/v/congruence-solver.svg?style=flat)](https://npmjs.org/package/congruence-solver "View this project on npm")
 [![MIT license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
 
-**Congruence Solver** is a TypeScript library designed to solve linear and quadratic congruences, as well as systems of such equations. Unlike most other solvers, it gives the solutions with the least possible modulus, which in effect minimizes the number of distinct residues.
+**Congruence Solver** is a TypeScript library designed to solve linear and
+quadratic congruences, as well as systems of such equations. Unlike most other
+solvers, it gives the solutions with the least possible modulus, which in effect
+minimizes the number of distinct residues.
 
-The library also provides access to underlying modular arithmetic utilities, including algorithms for calculating modular inverses and modular square roots.
+The library also provides access to underlying modular arithmetic utilities,
+including algorithms for calculating modular inverses and modular square roots.
 
 ## Examples
 
@@ -22,7 +26,10 @@ const {res, mod} = solveQuadraticCongruence(1, 18, 0, 27);
 console.log(`x ≡ ${res} (mod ${mod})`);  // x ≡ 0 (mod 9)
 ```
 
-For comparison, [WolframAlpha](https://www.wolframalpha.com/input?i=x%C2%B2%2B18x%E2%89%A10+%28mod+27%29) returns `x ≡ 0 (mod 27)`, `x ≡ 9 (mod 27)`, `x ≡ 18 (mod 27)`
+For comparison, as of Sep 2025
+[WolframAlpha doesn't simplify the solution](https://www.wolframalpha.com/input?i=x%C2%B2%2B18x%E2%89%A10+%28mod+27%29).
+It returns `x ≡ 0 (mod 27)`, `x ≡ 9 (mod 27)`, `x ≡ 18 (mod 27)` as opposed to
+`x ≡ 0 (mod 9)`
 
 ### Pre-factored modulus
 
