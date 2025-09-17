@@ -1,6 +1,7 @@
 # Congruence Solver
 
 [![NPM package](https://img.shields.io/npm/v/congruence-solver.svg?style=flat)](https://npmjs.org/package/congruence-solver "View this project on npm")
+[![Bundle size](https://img.shields.io/bundlephobia/min/congruence-solver)](https://bundlephobia.com/package/congruence-solver)
 [![MIT license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
 
 **Congruence Solver** is a TypeScript library designed to solve linear and
