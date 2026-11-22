@@ -1,3 +1,5 @@
+import {expect, test} from 'vitest';
+
 import {gcd} from '../src/gcd';
 
 test('gcd', () => {

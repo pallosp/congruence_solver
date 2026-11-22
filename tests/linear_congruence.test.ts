@@ -1,5 +1,7 @@
 import './lib/matchers';
 
+import {expect, test} from 'vitest';
+
 import {gcd} from '../src/gcd';
 import {solveLinearCongruence} from '../src/linear_congruence';
 import {ALL_RESIDUES, NO_RESIDUES} from '../src/residues';

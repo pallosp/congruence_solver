@@ -1,5 +1,7 @@
 import './lib/matchers';
 
+import {expect, test} from 'vitest';
+
 import {sqrtModPrime} from '../src/sqrt_mod';
 
 test('sqrtModPrime', () => {

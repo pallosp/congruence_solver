@@ -24,6 +24,13 @@
   "engines": {
     "node": ">=20.19"
   },
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "^22.18.0 || ^24.11.0 || >=26.0.0",
+      "onFail": "error"
+    }
+  },
   "files": [
     "dist"
   ],
@@ -41,29 +48,27 @@
   "scripts": {
     "benchmark": "tsx benchmark/benchmark",
     "build": "tsdown",
-    "coverage": "jest --coverage",
+    "coverage": "vitest run --coverage",
     "lint": "eslint",
     "prepublishOnly": ".husky/pre-commit && npm run build",
     "prepare": "husky",
-    "test": "jest",
+    "test": "vitest run",
     "typecheck": "tsc"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@swc/core": "^1.16.22",
-    "@swc/jest": "^0.2.39",
-    "@types/jest": "^30.0.0",
     "@types/node": "^24.19.2",
+    "@vitest/coverage-v8": "^5.1.1",
     "eslint": "^10.15.0",
     "globals": "^17.14.0",
     "husky": "^9.1.7",
-    "jest": "^30.5.2",
     "jiti": "^2.7.0",
     "publint": "^0.3.25",
     "tinybench": "^6.2.4",
     "tsdown": "^0.23.7",
     "tsx": "^4.23.15",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.73.0"
+    "typescript-eslint": "^8.73.0",
+    "vitest": "^5.1.1"
   }
 }

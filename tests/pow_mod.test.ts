@@ -1,3 +1,5 @@
+import {expect, test} from 'vitest';
+
 import {powMod} from '../src/pow_mod';
 
 test('powMod', () => {

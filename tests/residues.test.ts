@@ -1,5 +1,7 @@
 import './lib/matchers';
 
+import {expect, test} from 'vitest';
+
 import {ALL_RESIDUES, intersectResidues, NO_RESIDUES} from '../src/residues';
 
 import {randomInt} from './helper';

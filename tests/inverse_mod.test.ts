@@ -1,5 +1,7 @@
 import './lib/matchers';
 
+import {expect, test} from 'vitest';
+
 import {gcd} from '../src/gcd';
 import {inverseMod} from '../src/inverse_mod';
 

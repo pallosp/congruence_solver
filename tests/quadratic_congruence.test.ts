@@ -1,5 +1,7 @@
 import './lib/matchers';
 
+import {expect, test} from 'vitest';
+
 import {solveQuadraticCongruence, solveQuadraticCongruenceModPrime, solveQuadraticCongruenceModPrimePower} from '../src/quadratic_congruence';
 import {ALL_RESIDUES, NO_RESIDUES} from '../src/residues';
 
