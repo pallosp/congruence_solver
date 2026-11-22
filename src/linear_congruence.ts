@@ -1,6 +1,6 @@
 import {gcd} from './gcd';
 import {inverseMod} from './inverse_mod';
-import {NO_RESIDUES, ResidueClasses} from './residues';
+import {NO_RESIDUES, type ResidueClasses} from './residues';
 
 /**
  * Solves the congruence equation ax + b ≡ 0 (mod m).

@@ -1,7 +1,7 @@
 import {factor} from './factor';
 import {inverseMod} from './inverse_mod';
 import {solveLinearCongruence} from './linear_congruence';
-import {ALL_RESIDUES, NO_RESIDUES, ResidueClasses} from './residues';
+import {ALL_RESIDUES, NO_RESIDUES, type ResidueClasses} from './residues';
 import {sqrtModPrime} from './sqrt_mod';
 
 /**

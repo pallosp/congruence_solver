@@ -1,19 +1,19 @@
 {
   "compilerOptions": {
     "target": "ES2020",
-    "useDefineForClassFields": true,
     "module": "ESNext",
-    "lib": [
-      "ES2020"
-    ],
+    "lib": ["ES2020"],
+    "types": ["jest", "node"],
     "skipLibCheck": true,
-    "esModuleInterop": true,
+
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "isolatedModules": true,
+    "verbatimModuleSyntax": true,
     "moduleDetection": "force",
     "noEmit": true,
+
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
@@ -21,9 +21,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": [
-    "benchmark",
-    "src",
-    "tests"
-  ]
+  "include": ["*.config.ts", "benchmark", "src", "tests"]
 }

@@ -1,4 +1,4 @@
-import assert from 'minimalistic-assert';
+import {assert} from './assert';
 
 import {powMod} from './pow_mod';
 

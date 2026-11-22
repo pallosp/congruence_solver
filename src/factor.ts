@@ -1,4 +1,4 @@
-import assert from 'minimalistic-assert';
+import {assert} from './assert';
 
 /**
  * Returns the prime factors of the given positive integer in increasing order.

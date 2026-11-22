@@ -1,4 +1,4 @@
-import assert from 'minimalistic-assert';
+import {assert} from '../src/assert';
 
 export function isPowerOfTwo(x: number): boolean {
   return Number.isInteger(Math.log2(x));
